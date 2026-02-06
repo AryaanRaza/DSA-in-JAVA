@@ -5,24 +5,26 @@ package linkedlist;
  Platform: Core DSA
  */
 
-class Node
-{
-    int data;
-    Node next;
-
-    Node(int data)
-    {
-        this.data = data;
-        this.next = null;
-    }
-}
 
 public class SinglyLinkedList
 {
-    Node head;
+    private static class Node
+    {
+        int data;
+        Node next;
 
+        Node(int data)
+        {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    private Node head;
+
+    //***********INSERTION***********
     // Insert at end
-    public void insert(int data)
+    public void insertAtEnd(int data)
     {
         Node newNode = new Node(data);
         if (head == null)
@@ -38,6 +40,39 @@ public class SinglyLinkedList
         temp.next = newNode;
     }
 
+    public void insertAtStart(int data)
+    {
+        Node temp = new Node(data);
+        temp.next=head;
+        head=temp;
+    }
+
+    public void insertAtIndex(int index , int data)
+    {
+        Node newNode = new Node(data);
+        if(index==1)
+        {
+            newNode.next=head;
+            head=newNode;
+            return;
+        }
+
+        Node temp = head;
+        int i = 1;
+        while(temp!=null)
+        {
+            if(i+1==index)
+            {
+                newNode.next=temp.next;
+                temp.next=newNode;
+                return;
+            }
+            temp=temp.next;
+            i++;
+        }
+
+    }
+
     // Display list
     public void display()
     {
@@ -50,14 +85,5 @@ public class SinglyLinkedList
         System.out.print("null");
     }
 
-    public static void main(String[] args)
-    {
-        SinglyLinkedList list = new SinglyLinkedList();
-        list.insert(5);
-        list.insert(10);
-        list.insert(15);
-        list.insert(20);
 
-        list.display();
-    }
 }
