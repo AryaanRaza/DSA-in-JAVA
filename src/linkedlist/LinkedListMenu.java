@@ -13,7 +13,7 @@ public class LinkedListMenu
         boolean flag = true;
         while (flag)
         {
-            System.out.print("\nEnter---\n   1 to insert\n   2 to Delete\n   3 to exit ");
+            System.out.print("\nEnter---\n   1 to insert\n   2 to Delete\n   3 to reverse list\n   4 to exit ");
             System.out.print("\n   Your choice : ");
             int choice = sc.nextInt();
             switch (choice)
@@ -64,7 +64,11 @@ public class LinkedListMenu
                     }
                     break;
 
-                case 3:
+                case 3 :
+                    list.reverse();
+
+
+                case 4:
                     flag = false;
 
             }
