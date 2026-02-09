@@ -21,10 +21,10 @@ public class LinkedListMenu
                 case 1:
                     System.out.print("\nEnter---\n  1 at Start\n  2 to at End\n  3 to at index");
                     System.out.print("\n  Your choice : ");
-                    int ch = sc.nextInt();
+                    int c1 = sc.nextInt();
                     System.out.print("\nEnter data : ");
                     int data = sc.nextInt();
-                    switch (ch)
+                    switch (c1)
                     {
                         case 1:
                             list.insertAtStart(data);
@@ -43,6 +43,25 @@ public class LinkedListMenu
                     break;
 
                 case 2:
+                    System.out.print("\nEnter---\n  1 at Start\n  2 to at End\n  3 to at index");
+                    System.out.print("\n  Your choice : ");
+                    int c2 = sc.nextInt();
+                    switch (c2)
+                    {
+                        case 1:
+                            list.deleteAtStart();
+                            break;
+
+                        case 2:
+                            list.deleteAtEnd();
+                            break;
+
+                        case 3:
+                            System.out.print("\nEnter index : ");
+                            int index = sc.nextInt();
+                            list.deleteAtIndex(index);
+                            break;
+                    }
                     break;
 
                 case 3:

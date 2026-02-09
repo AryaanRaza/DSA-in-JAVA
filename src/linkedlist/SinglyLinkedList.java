@@ -43,34 +43,86 @@ public class SinglyLinkedList
     public void insertAtStart(int data)
     {
         Node temp = new Node(data);
-        temp.next=head;
-        head=temp;
+        temp.next = head;
+        head = temp;
     }
 
-    public void insertAtIndex(int index , int data)
+    public void insertAtIndex(int index, int data)
     {
         Node newNode = new Node(data);
-        if(index==1)
+        if (index == 1)
         {
-            newNode.next=head;
-            head=newNode;
+            newNode.next = head;
+            head = newNode;
             return;
         }
 
         Node temp = head;
         int i = 1;
-        while(temp!=null)
+        while (temp != null)
         {
-            if(i+1==index)
+            if (i + 1 == index)
             {
-                newNode.next=temp.next;
-                temp.next=newNode;
+                newNode.next = temp.next;
+                temp.next = newNode;
                 return;
             }
-            temp=temp.next;
+            temp = temp.next;
             i++;
         }
 
+    }
+
+    public void deleteAtStart()
+    {
+        if (head == null)
+        {
+            System.out.print("\nList is empty");
+            return;
+        }
+        head = head.next;
+    }
+
+    public void deleteAtEnd()
+    {
+        if (head == null)
+        {
+            System.out.print("\nList is empty");
+            return;
+        }
+        Node temp = head;
+        while (temp.next.next != null)
+        {
+            temp = temp.next;
+        }
+        temp.next = null;
+    }
+
+    public void deleteAtIndex(int index)
+    {
+        if (head == null)
+        {
+            System.out.print("\nList is empty");
+            return;
+        }
+        if (index == 1)
+        {
+            head = head.next;
+            return;
+        }
+        Node temp = head;
+        int i = 1;
+        while (temp.next != null)
+        {
+            if (i + 1 == index)
+            {
+                temp.next = temp.next.next;
+                return;
+            }
+            temp = temp.next;
+            i++;
+        }
+        System.out.print("\nInvalid index");
     }
 
     // Display list
@@ -84,6 +136,5 @@ public class SinglyLinkedList
         }
         System.out.print("null");
     }
-
 
 }
