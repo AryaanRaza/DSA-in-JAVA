@@ -43,7 +43,7 @@ public class LinkedListMenu
                     break;
 
                 case 2:
-                    System.out.print("\nEnter---\n  1 at Start\n  2 to at End\n  3 to at index");
+                    System.out.print("\nEnter---\n  1 at Start\n  2 to at End\n  3 to at index\n  4 to at value");
                     System.out.print("\n  Your choice : ");
                     int c2 = sc.nextInt();
                     switch (c2)
@@ -61,10 +61,15 @@ public class LinkedListMenu
                             int index = sc.nextInt();
                             list.deleteAtIndex(index);
                             break;
+                        case 4:
+                            System.out.print("\nEnter value : ");
+                            int value = sc.nextInt();
+                            list.deletebyValue(value);
+                            break;
                     }
                     break;
 
-                case 3 :
+                case 3:
                     list.reverse();
 
 

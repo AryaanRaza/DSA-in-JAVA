@@ -125,6 +125,33 @@ public class SinglyLinkedList
         System.out.print("\nInvalid index");
     }
 
+    public void deletebyValue(int value)
+    {
+        if (head == null)
+        {
+            System.out.print("\nList is empty");
+            return;
+        }
+
+        if (head.data == value)
+        {
+            head = head.next;
+            return;
+        }
+
+        Node curr = head;
+        while (curr.next != null && curr.next.data != value)
+        {
+            curr = curr.next;
+        }
+        if (curr.next == null)
+        {
+            System.out.println("Value " + value + " not found in the list");
+            return;
+        }
+        curr.next = curr.next.next;
+    }
+
     // Display list
     public void display()
     {
@@ -140,16 +167,16 @@ public class SinglyLinkedList
     public void reverse()
     {
         Node prev = null;
-        Node curr = head ;
+        Node curr = head;
 
-        while(curr!=null)
+        while (curr != null)
         {
             Node next = curr.next;
-            curr.next=prev;
-            prev=curr;
-            curr=next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
         }
-        head=prev;
+        head = prev;
     }
 
 }
