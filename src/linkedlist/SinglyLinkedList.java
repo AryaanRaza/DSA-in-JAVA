@@ -152,6 +152,20 @@ public class SinglyLinkedList
         curr.next = curr.next.next;
     }
 
+    boolean search(int key)
+    {
+        Node curr = head;
+        while (curr.next != null)
+        {
+            if (curr.data == key)
+            {
+                return true;
+            }
+            curr = curr.next;
+        }
+        return false;
+    }
+
     // Display list
     public void display()
     {
