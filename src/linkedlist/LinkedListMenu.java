@@ -13,7 +13,7 @@ public class LinkedListMenu
         boolean flag = true;
         while (flag)
         {
-            System.out.print("\nEnter---\n   1 to insert\n   2 to Delete\n   3 to reverse list\n   4 to search \n   5 to exit ");
+            System.out.print("\nEnter---\n   1 to insert\n   2 to Delete\n   3 to reverse list\n   4 to search \n   5 to get Size\n   6 to exit ");
             System.out.print("\n   Your choice : ");
             int choice = sc.nextInt();
             switch (choice)
@@ -64,13 +64,14 @@ public class LinkedListMenu
                         case 4:
                             System.out.print("\nEnter value : ");
                             int value = sc.nextInt();
-                            list.deletebyValue(value);
+                            list.deleteByValue(value);
                             break;
                     }
                     break;
 
                 case 3:
                     list.reverse();
+                    break;
 
                 case 4:
                     System.out.print("\nEnter value to search: ");
@@ -79,12 +80,17 @@ public class LinkedListMenu
                     {
                         System.out.println("\nValue found");
                     }
-                    else{
+                    else
+                    {
                         System.out.println("\nValue not present");
                     }
                     break;
 
                 case 5:
+                    System.out.println("\nSize of Linked List : "+list.getSize());
+                    break;
+
+                case 6:
                     flag = false;
 
             }
