@@ -36,6 +36,14 @@ public class DoublyLinkedList
         newNode.prev = temp;
     }
 
+    public void insertAtStart(int data){
+        Node newNode = new Node(data);
+        newNode.next=head;
+        head.prev=newNode;
+
+        head = newNode;
+    }
+
     public void traverse()
     {
         Node temp = head;
@@ -55,6 +63,7 @@ public class DoublyLinkedList
         list.insertAtEnd(15);
         list.insertAtEnd(20);
         list.insertAtEnd(25);
+        list.insertAtStart(0);
 
         list.traverse();
     }
