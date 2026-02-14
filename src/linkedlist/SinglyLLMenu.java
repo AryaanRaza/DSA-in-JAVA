@@ -2,7 +2,7 @@ package linkedlist;
 
 import java.util.Scanner;
 
-public class LinkedListMenu
+public class SinglyLLMenu
 {
     public static void main(String[] args)
     {
