@@ -120,15 +120,47 @@ public class DoublyLinkedList
         Node curr = head;
         while (curr.next != null)
         {
-            if(i+1 == index)
+            if (i + 1 == index)
             {
                 Node temp = curr.next.next;
                 temp.prev = curr;
-                curr.next=temp;
+                curr.next = temp;
             }
             curr = curr.next;
             i++;
         }
+    }
+
+    public void deleteByValue(int value)
+    {
+        if (head == null)
+        {
+            System.out.print("\nList is empty");
+            return;
+        }
+
+        if (head.data == value)
+        {
+            deleteAtStart();
+            return;
+        }
+
+        Node curr = head;
+        while (curr.next != null && curr.next.data != value)
+        {
+            curr = curr.next;
+        }
+        if (curr.next == null)
+        {
+            System.out.println("Value " + value + " not found in the list");
+            return;
+        }
+        Node temp = curr.next.next;
+        if (temp != null)
+        {
+            temp.prev = curr;
+        }
+        curr.next = temp;
     }
 
     public void traverse()
@@ -155,8 +187,7 @@ public class DoublyLinkedList
 
         list.traverse();
         System.out.print("\nDelete---\n");
-        list.deleteAtStart();
-        list.deleteAtIndex(3);
+        list.deleteByValue(25);
         list.traverse();
 
 
