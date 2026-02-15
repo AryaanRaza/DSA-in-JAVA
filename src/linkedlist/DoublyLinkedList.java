@@ -8,7 +8,6 @@ public class DoublyLinkedList
         int data;
         Node next;
 
-
         Node(int data)
         {
             this.prev = null;
@@ -18,6 +17,55 @@ public class DoublyLinkedList
     }
 
     private Node head;
+    private int size = 0;
+
+
+    public void insertAtStart(int data)
+    {
+        Node newNode = new Node(data);
+        newNode.next = head;
+        head.prev = newNode;
+
+        head = newNode;
+        size++;
+
+    }
+
+    public void insertAtIndex(int data, int index)
+    {
+        if (index < 1 || index > size + 1)
+        {
+            System.out.print("\nInvalid index , Enter value between 1 and " + (size + 1));
+            return;
+        }
+        if (index == 1)
+        {
+            insertAtStart(data);
+            return;
+        }
+        if(index == size +1){
+            insertAtEnd(data);
+            return;
+        }
+        int i = 1;
+        Node curr = head;
+        while (curr != null)
+        {
+            if (i +1 == index)
+            {
+                Node newNode = new Node(data);
+                newNode.prev = curr;
+                newNode.next = curr.next;
+                curr.next.prev = newNode;
+                curr.next = newNode;
+                size++;
+                return;
+            }
+            curr = curr.next;
+            i++;
+        }
+
+    }
 
     public void insertAtEnd(int data)
     {
@@ -25,6 +73,7 @@ public class DoublyLinkedList
         if (head == null)
         {
             head = newNode;
+            size++;
             return;
         }
         Node temp = head;
@@ -34,14 +83,7 @@ public class DoublyLinkedList
         }
         temp.next = newNode;
         newNode.prev = temp;
-    }
-
-    public void insertAtStart(int data){
-        Node newNode = new Node(data);
-        newNode.next=head;
-        head.prev=newNode;
-
-        head = newNode;
+        size++;
     }
 
     public void traverse()
@@ -51,7 +93,8 @@ public class DoublyLinkedList
         {
             System.out.print(temp.data + "->");
             temp = temp.next;
-        };
+        }
+        ;
         System.out.print("null");
     }
 
@@ -64,6 +107,9 @@ public class DoublyLinkedList
         list.insertAtEnd(20);
         list.insertAtEnd(25);
         list.insertAtStart(0);
+        list.insertAtIndex(2,2);
+        list.insertAtIndex(12,5);
+        list.insertAtIndex(100,9);
 
         list.traverse();
     }
