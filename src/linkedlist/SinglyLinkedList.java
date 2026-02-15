@@ -25,24 +25,7 @@ public class SinglyLinkedList
 
 
     //***********INSERTION***********
-    // Insert at end
-    public void insertAtEnd(int data)
-    {
-        Node newNode = new Node(data);
-        if (head == null)
-        {
-            head = newNode;
-            size++;
-            return;
-        }
-        Node temp = head;
-        while (temp.next != null)
-        {
-            temp = temp.next;
-        }
-        temp.next = newNode;
-        size++;
-    }
+
 
     public void insertAtStart(int data)
     {
@@ -83,6 +66,25 @@ public class SinglyLinkedList
 
     }
 
+    // Insert at end
+    public void insertAtEnd(int data)
+    {
+        Node newNode = new Node(data);
+        if (head == null)
+        {
+            head = newNode;
+            size++;
+            return;
+        }
+        Node temp = head;
+        while (temp.next != null)
+        {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+        size++;
+    }
+
     public void deleteAtStart()
     {
         if (head == null)
@@ -94,27 +96,7 @@ public class SinglyLinkedList
         size--;
     }
 
-    public void deleteAtEnd()
-    {
-        if (head == null)
-        {
-            System.out.print("\nList is empty");
-            return;
-        }
-        if (head.next == null)
-        {
-            head = null;
-            size--;
-            return;
-        }
-        Node temp = head;
-        while (temp.next.next != null)
-        {
-            temp = temp.next;
-        }
-        temp.next = null;
-        size--;
-    }
+
 
     public void deleteAtIndex(int index)
     {
@@ -175,6 +157,28 @@ public class SinglyLinkedList
             return;
         }
         curr.next = curr.next.next;
+        size--;
+    }
+
+    public void deleteAtEnd()
+    {
+        if (head == null)
+        {
+            System.out.print("\nList is empty");
+            return;
+        }
+        if (head.next == null)
+        {
+            head = null;
+            size--;
+            return;
+        }
+        Node temp = head;
+        while (temp.next.next != null)
+        {
+            temp = temp.next;
+        }
+        temp.next = null;
         size--;
     }
 
