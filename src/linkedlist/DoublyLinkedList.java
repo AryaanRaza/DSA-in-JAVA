@@ -216,6 +216,23 @@ public class DoublyLinkedList
         System.out.print("null");
     }
 
+
+    //***********Reverse***********
+    public void reverse()
+    {
+        Node prev = null;
+        Node curr = head;
+
+        while (curr != null)
+        {
+            Node next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
+
     public int getSize()
     {
         return size;
@@ -233,9 +250,11 @@ public class DoublyLinkedList
 
 
         list.traverse();
-        System.out.print("\nDelete---\n");
-        list.deleteAtEnd();
+        System.out.print("\nReversed List - ");
+        list.reverse();
         list.traverse();
+
+
 
 
     }
