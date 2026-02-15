@@ -163,6 +163,28 @@ public class DoublyLinkedList
         curr.next = temp;
     }
 
+    public void deleteAtEnd()
+    {
+        if (head == null)
+        {
+            System.out.print("\nList is empty");
+            return;
+        }
+        if (head.next == null)
+        {
+            head = null;
+            size--;
+            return;
+        }
+        Node curr = head;
+        while (curr.next.next != null)
+        {
+            curr = curr.next;
+        }
+        curr.next = null;
+        size--;
+    }
+
     public void traverse()
     {
         Node temp = head;
@@ -187,7 +209,7 @@ public class DoublyLinkedList
 
         list.traverse();
         System.out.print("\nDelete---\n");
-        list.deleteByValue(25);
+        list.deleteAtEnd();
         list.traverse();
 
 
