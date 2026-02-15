@@ -95,8 +95,40 @@ public class DoublyLinkedList
             return;
         }
         head = head.next;
-        head.prev=null;
+        head.prev = null;
         size--;
+    }
+
+    public void deleteAtIndex(int index)
+    {
+        if (index < 1 || index > size)
+        {
+            System.out.print("\nInvalid index , Enter value between 1 and " + size);
+            return;
+        }
+        if (head == null)
+        {
+            System.out.print("\nList is empty");
+            return;
+        }
+        if (index == 1)
+        {
+            deleteAtStart();
+            return;
+        }
+        int i = 1;
+        Node curr = head;
+        while (curr.next != null)
+        {
+            if(i+1 == index)
+            {
+                Node temp = curr.next.next;
+                temp.prev = curr;
+                curr.next=temp;
+            }
+            curr = curr.next;
+            i++;
+        }
     }
 
     public void traverse()
@@ -121,11 +153,10 @@ public class DoublyLinkedList
         list.insertAtEnd(25);
 
 
-
-
         list.traverse();
         System.out.print("\nDelete---\n");
         list.deleteAtStart();
+        list.deleteAtIndex(3);
         list.traverse();
 
 
