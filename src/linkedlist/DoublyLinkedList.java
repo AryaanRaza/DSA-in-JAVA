@@ -24,11 +24,11 @@ public class DoublyLinkedList
     {
         Node newNode = new Node(data);
         newNode.next = head;
-        head.prev = newNode;
-
+        if (head != null){
+            head.prev = newNode;
+        }
         head = newNode;
         size++;
-
     }
 
     public void insertAtIndex(int data, int index)
@@ -199,7 +199,7 @@ public class DoublyLinkedList
         return false;
     }
 
-    public void traverse()
+    public void display()
     {
         Node temp = head;
         if (temp == null)
@@ -220,17 +220,26 @@ public class DoublyLinkedList
     //***********Reverse***********
     public void reverse()
     {
-        Node prev = null;
+        if (head == null || head.next == null)
+        {
+            return;
+        }
+
         Node curr = head;
+        Node temp = null;
+
 
         while (curr != null)
         {
-            Node next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+
+            temp = curr.prev;
+            curr.prev = curr.next;
+            curr.next = temp;
+
+            curr = curr.prev;
         }
-        head = prev;
+
+        head = temp.prev;
     }
 
     public int getSize()
@@ -238,24 +247,4 @@ public class DoublyLinkedList
         return size;
     }
 
-
-    public static void main(String[] args)
-    {
-        DoublyLinkedList list = new DoublyLinkedList();
-        list.insertAtEnd(5);
-        list.insertAtEnd(10);
-        list.insertAtEnd(15);
-        list.insertAtEnd(20);
-        list.insertAtEnd(25);
-
-
-        list.traverse();
-        System.out.print("\nReversed List - ");
-        list.reverse();
-        list.traverse();
-
-
-
-
-    }
 }
