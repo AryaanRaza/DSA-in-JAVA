@@ -43,7 +43,8 @@ public class DoublyLinkedList
             insertAtStart(data);
             return;
         }
-        if(index == size +1){
+        if (index == size + 1)
+        {
             insertAtEnd(data);
             return;
         }
@@ -51,7 +52,7 @@ public class DoublyLinkedList
         Node curr = head;
         while (curr != null)
         {
-            if (i +1 == index)
+            if (i + 1 == index)
             {
                 Node newNode = new Node(data);
                 newNode.prev = curr;
@@ -86,6 +87,18 @@ public class DoublyLinkedList
         size++;
     }
 
+    public void deleteAtStart()
+    {
+        if (head == null)
+        {
+            System.out.print("\nList is empty");
+            return;
+        }
+        head = head.next;
+        head.prev=null;
+        size--;
+    }
+
     public void traverse()
     {
         Node temp = head;
@@ -106,11 +119,15 @@ public class DoublyLinkedList
         list.insertAtEnd(15);
         list.insertAtEnd(20);
         list.insertAtEnd(25);
-        list.insertAtStart(0);
-        list.insertAtIndex(2,2);
-        list.insertAtIndex(12,5);
-        list.insertAtIndex(100,9);
+
+
+
 
         list.traverse();
+        System.out.print("\nDelete---\n");
+        list.deleteAtStart();
+        list.traverse();
+
+
     }
 }
