@@ -185,9 +185,28 @@ public class DoublyLinkedList
         size--;
     }
 
+    boolean search(int key)
+    {
+        Node curr = head;
+        while (curr != null)
+        {
+            if (curr.data == key)
+            {
+                return true;
+            }
+            curr = curr.next;
+        }
+        return false;
+    }
+
     public void traverse()
     {
         Node temp = head;
+        if (temp == null)
+        {
+            System.out.print("\nList is empty");
+            return;
+        }
         while (temp != null)
         {
             System.out.print(temp.data + "->");
