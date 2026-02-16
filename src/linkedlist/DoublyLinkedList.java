@@ -214,6 +214,32 @@ public class DoublyLinkedList
         return false;
     }
 
+    public int getAtIndex(int index)
+    {
+        if (index < 1 || index > size)
+        {
+            System.out.println("Invalid index");
+            return -1;
+        }
+
+        Node curr = head;
+        int i = 1;
+
+        while (curr != null)
+        {
+            if (i == index)
+            {
+                return curr.data;
+            }
+
+            curr = curr.next;
+            i++;
+        }
+
+        return -1;
+    }
+
+
     public void display()
     {
         Node temp = head;

@@ -14,7 +14,7 @@ public class DoublyLLMenu
         boolean flag = true;
         while (flag)
         {
-            System.out.print("\nEnter---\n   1 to insert\n   2 to Delete\n   3 to reverse list\n   4 to search \n   5 to get Size\n   6 to exit ");
+            System.out.print("\nEnter---\n   1 to insert\n   2 to Delete\n   3 to reverse list\n   4 to search \n   5 to get Size\n   6 to get value at index\n   7 to exit ");
             System.out.print("\n   Your choice : ");
             int choice = sc.nextInt();
             switch (choice)
@@ -91,8 +91,15 @@ public class DoublyLLMenu
                     System.out.println("\nSize of Linked List : " + list.getSize());
                     break;
 
-                case 6:
+                case 6 :
+                    System.out.print("\nEnter the index : ");
+                    int index = sc.nextInt();
+                    System.out.print("\nValue is : "+list.getAtIndex(index)+"\n");
+                    break;
+
+                case 7:
                     flag = false;
+
 
             }
             list.display();
