@@ -99,6 +99,11 @@ public class DoublyLLMenu
 
                 case 7:
                     flag = false;
+                    break;
+
+                default:
+                    System.out.print("\nWorng Entry try again");
+
 
 
             }
