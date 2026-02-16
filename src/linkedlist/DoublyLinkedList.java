@@ -19,7 +19,6 @@ public class DoublyLinkedList
     private Node head;
     private int size = 0;
 
-
     public void insertAtStart(int data)
     {
         Node newNode = new Node(data);
@@ -31,7 +30,7 @@ public class DoublyLinkedList
         size++;
     }
 
-    public void insertAtIndex(int data, int index)
+    public void insertAtIndex(int index, int data)
     {
         if (index < 1 || index > size + 1)
         {
@@ -94,8 +93,15 @@ public class DoublyLinkedList
             System.out.print("\nList is empty");
             return;
         }
-        head = head.next;
-        head.prev = null;
+        if (head.next == null)
+        {
+            head = null;
+        }
+        else
+        {
+            head = head.next;
+            head.prev = null;
+        }
         size--;
     }
 
@@ -106,30 +112,39 @@ public class DoublyLinkedList
             System.out.print("\nInvalid index , Enter value between 1 and " + size);
             return;
         }
-        if (head == null)
-        {
-            System.out.print("\nList is empty");
-            return;
-        }
+
         if (index == 1)
         {
             deleteAtStart();
             return;
         }
-        int i = 1;
+
         Node curr = head;
-        while (curr.next != null)
+        int i = 1;
+
+        while (curr != null)
         {
-            if (i + 1 == index)
+            if (i == index)
             {
-                Node temp = curr.next.next;
-                temp.prev = curr;
-                curr.next = temp;
+                if (curr.next != null)
+                {
+                    curr.next.prev = curr.prev;
+                }
+
+                if (curr.prev != null)
+                {
+                    curr.prev.next = curr.next;
+                }
+
+                size--;
+                return;
             }
+
             curr = curr.next;
             i++;
         }
     }
+
 
     public void deleteByValue(int value)
     {
@@ -220,27 +235,23 @@ public class DoublyLinkedList
     //***********Reverse***********
     public void reverse()
     {
-        if (head == null || head.next == null)
-        {
-            return;
-        }
-
         Node curr = head;
         Node temp = null;
 
-
         while (curr != null)
         {
-
             temp = curr.prev;
             curr.prev = curr.next;
             curr.next = temp;
-
             curr = curr.prev;
         }
 
-        head = temp.prev;
+        if (temp != null)
+        {
+            head = temp.prev;
+        }
     }
+
 
     public int getSize()
     {
