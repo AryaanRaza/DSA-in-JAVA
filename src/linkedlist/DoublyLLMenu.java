@@ -10,7 +10,6 @@ public class DoublyLLMenu
         Scanner sc = new Scanner(System.in);
         DoublyLinkedList list = new DoublyLinkedList();
 
-
         boolean flag = true;
         while (flag)
         {
