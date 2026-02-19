@@ -102,10 +102,7 @@ public class DoublyLLMenu
                     break;
 
                 default:
-                    System.out.print("\nWorng Entry try again");
-
-
-
+                    System.out.print("\nWrong Entry try again");
             }
             list.display();
         }
