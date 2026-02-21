@@ -22,4 +22,15 @@ public class StackArray
         arr[++top]=x;
     }
 
+    //Pop Operation
+    public int pop(){
+        if(top==-1){
+            System.out.print("\nStack Underflow! Cannot pop");
+            return -1;
+        }
+
+        return arr[top--];
+    }
+
+
 }
