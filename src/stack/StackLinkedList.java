@@ -19,8 +19,9 @@ public class StackLinkedList
     private Node top = null;
     private int size;
 
-    public boolean isEmpty(){
-        return top==null;
+    public boolean isEmpty()
+    {
+        return top == null;
     }
 
     public void push(int x)
@@ -31,8 +32,10 @@ public class StackLinkedList
         size++;
     }
 
-    public int pop(){
-        if(isEmpty()){
+    public int pop()
+    {
+        if (isEmpty())
+        {
             System.out.print("\nStack Underflow! Cannot pop");
             return -1;
         }
@@ -40,7 +43,17 @@ public class StackLinkedList
         int popped = top.data;
         top = top.next;
         size--;
-        return  popped;
+        return popped;
+    }
+
+    public int peek()
+    {
+        if (isEmpty())
+        {
+            System.out.println("Stack is empty");
+            return -1;
+        }
+        return top.data;
     }
 
     public static void main(String[] args)
