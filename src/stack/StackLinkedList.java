@@ -56,6 +56,24 @@ public class StackLinkedList
         return top.data;
     }
 
+    public void display()
+    {
+        if (isEmpty())
+        {
+            System.out.println("Stack is empty");
+            return;
+        }
+
+        Node temp = top;
+        System.out.print("\nStack elements (top → bottom): ");
+        while (temp != null)
+        {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args)
     {
         StackLinkedList s = new StackLinkedList();
