@@ -1,7 +1,5 @@
 package stack;
-
 import java.util.Scanner;
-
 public class StackArray
 {
     private int[] arr;         // array to store stack elements
