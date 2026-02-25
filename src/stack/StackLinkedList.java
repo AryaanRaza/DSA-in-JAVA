@@ -74,6 +74,11 @@ public class StackLinkedList
         System.out.println();
     }
 
+
+    public int getSize() {
+        return size;
+    }
+
     public static void main(String[] args)
     {
         StackLinkedList s = new StackLinkedList();
