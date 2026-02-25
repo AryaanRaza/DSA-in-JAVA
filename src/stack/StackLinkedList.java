@@ -19,7 +19,13 @@ public class StackLinkedList
     private Node top = null;
     private int capacity;
 
-
+    public void push(int x)
+    {
+        Node newNode = new Node(x);
+        newNode.next = top;
+        top = newNode;
+        size++;
+    }
 
     public static void main(String[] args)
     {
