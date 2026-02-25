@@ -1,7 +1,5 @@
 package stack;
 
-import linkedlist.SinglyLinkedList;
-
 import java.util.Scanner;
 
 public class StackLinkedList
@@ -18,22 +16,26 @@ public class StackLinkedList
         }
     }
 
-    private Node top = null;
-    private int size;
+    private Node top = null;   // top of stack
+    private int size;          // current size of stack
 
+    // Check if empty
     public boolean isEmpty()
     {
         return top == null;
     }
 
+    // Push operation (insert at head)
     public void push(int x)
     {
         Node newNode = new Node(x);
         newNode.next = top;
         top = newNode;
         size++;
+        System.out.println(x + " pushed to stack");
     }
 
+    // Pop operation (delete from head)
     public int pop()
     {
         if (isEmpty())
@@ -45,9 +47,11 @@ public class StackLinkedList
         int popped = top.data;
         top = top.next;
         size--;
+        System.out.println(popped + " popped from stack");
         return popped;
     }
 
+    // Peek operation
     public int peek()
     {
         if (isEmpty())
@@ -58,6 +62,7 @@ public class StackLinkedList
         return top.data;
     }
 
+    // Display stack (top to bottom)
     public void display()
     {
         if (isEmpty())
